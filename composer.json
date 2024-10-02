@@ -1,0 +1,19 @@
+{
+    "name": "qian2/test-fyp",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qian2\\TestFyp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jameson Chin",
+            "email": "qian28@outlook.com"
+        }
+    ],
+    "require": {}
+}

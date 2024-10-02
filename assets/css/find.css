@@ -1,0 +1,27 @@
+/* Style for the left-side table */
+#map {
+    height: 400px;
+    width: 300px;
+    margin-top: 20px; /* add margin to prevent overlap with table */
+}
+
+#HealthCare {
+    float: left;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+    #HealthCare td, th {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+/* Style for the right-side map */
+#map {
+    float: right;
+    width: 50%;
+    height: 400px;
+    margin-top: 20px;
+}

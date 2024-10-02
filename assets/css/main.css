@@ -1,0 +1,845 @@
+
+/* Fonts */
+:root {
+  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-primary: "Amatic SC", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+}
+
+/* Colors */
+:root {
+    --color-default: #212529;
+    --color-primary: #ce1212;
+    --color-secondary: #37373f;
+    --color-background: #f9f9f9;
+    --color-text: #333;
+    --color-accent: #ce1212;
+    --color-link: #007bff;
+}
+
+/* Smooth scroll behavior */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-default);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ec2727;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+}
+
+/*--------------------------------------------------------------
+# Sections & Section Header
+--------------------------------------------------------------*/
+section {
+  overflow: hidden;
+  padding: 80px 0;
+  scroll-margin-top: 90px;
+  overflow: clip;
+}
+
+.section-bg {
+  background-color: #eee;
+}
+
+.section-header {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  color: #7f7f90;
+  text-transform: uppercase;
+  font-family: var(--font-default);
+}
+
+.section-header p {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 400;
+  font-family: var(--font-primary);
+}
+
+.section-header p span {
+  color: var(--color-primary);
+}
+
+/*--------------------------------------------------------------
+# Scroll top button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background: var(--color-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background: #ec2727;
+  color: #fff;
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.6s ease-out;
+  width: 100%;
+  height: 100vh;
+}
+
+#preloader:before,
+#preloader:after {
+  content: "";
+  position: absolute;
+  border: 4px solid var(--color-primary);
+  border-radius: 50%;
+  animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+#preloader:after {
+  animation-delay: -0.5s;
+}
+
+@keyframes animate-preloader {
+  0% {
+    width: 10px;
+    height: 10px;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    opacity: 1;
+  }
+
+  100% {
+    width: 72px;
+    height: 72px;
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+    opacity: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.header {
+  background: #fff;
+  transition: all 0.5s;
+  z-index: 997;
+  height: 90px;
+  border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 575px) {
+  .header {
+    height: 70px;
+  }
+}
+
+.header.sticked {
+  border-color: #fff;
+  border-color: #eee;
+}
+
+.header .logo img {
+  max-height: 40px;
+  margin-right: 6px;
+}
+
+.header .logo h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  font-family: var(--font-secondary);
+}
+
+.header .logo h1 span {
+  color: var(--color-primary);
+}
+
+.header .btn-book-a-table,
+.header .btn-book-a-table:focus {
+  font-size: 14px;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 8px 20px;
+  margin-left: 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-book-a-table:hover,
+.header .btn-book-a-table:focus:hover {
+  color: #fff;
+  background: rgba(206, 18, 18, 0.8);
+}
+
+/*--------------------------------------------------------------
+# Desktop Navigation
+--------------------------------------------------------------*/
+@media (min-width: 1280px) {
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navbar li {
+    position: relative;
+  }
+
+  .navbar>ul>li {
+    white-space: nowrap;
+    padding: 10px 0 10px 28px;
+  }
+
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3px;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    color: #7f7f90;
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+
+  .navbar>ul>li>a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: var(--color-primary);
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  .navbar a:hover:before,
+  .navbar li:hover>a:before,
+  .navbar .active:before {
+    visibility: visible;
+    width: 100%;
+  }
+
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #000;
+  }
+
+  .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 28px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    border-radius: 4px;
+  }
+
+  .navbar .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navbar .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    font-weight: 600;
+  }
+
+  .navbar .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul .active:hover,
+  .navbar .dropdown ul li:hover>a {
+    color: var(--color-primary);
+  }
+
+  .navbar .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+  }
+
+  .navbar .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover>ul {
+    left: -100%;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .mobile-nav-show,
+  .mobile-nav-hide {
+    display: none;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  background-size: cover;
+  position: relative;
+  min-height: 60vh;
+  padding: 160px 0 60px 0;
+}
+
+.hero h2 {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--color-secondary);
+  font-family: var(--font-primary);
+}
+
+.hero h2 span {
+  color: var(--color-primary);
+}
+
+.hero p {
+  color: #4f4f5a;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.hero .btn-book-a-table {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 36px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: var(--color-primary);
+  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);
+}
+
+.hero .btn-book-a-table:hover {
+  background: rgba(206, 18, 18, 0.8);
+  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.45);
+}
+
+.hero .btn-watch-video {
+  font-size: 16px;
+  transition: 0.5s;
+  margin-left: 25px;
+  color: var(--font-secondary);
+  font-weight: 600;
+}
+
+.hero .btn-watch-video i {
+  color: var(--color-primary);
+  font-size: 32px;
+  transition: 0.3s;
+  line-height: 0;
+  margin-right: 8px;
+}
+
+.hero .btn-watch-video:hover {
+  color: var(--color-primary);
+}
+
+.hero .btn-watch-video:hover i {
+  color: rgba(206, 18, 18, 0.8);
+}
+
+@media (max-width: 640px) {
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .hero .btn-get-started,
+  .hero .btn-watch-video {
+    font-size: 14px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+    font-size: 14px;
+    background-color: #1f1f24;
+    padding: 50px 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer .icon {
+    margin-right: 15px;
+    font-size: 24px;
+    line-height: 0;
+}
+
+.footer h4 {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    color: #fff;
+}
+
+.footer .footer-links {
+    margin-bottom: 30px;
+}
+
+.footer .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .footer-links ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer .footer-links ul li:first-child {
+    padding-top: 0;
+}
+
+.footer .footer-links ul a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+    color: #fff;
+}
+
+.footer .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.footer .social-links a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .credits {
+    padding-top: 4px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.footer .credits a {
+color: #fff;
+}
+
+
+
+
+.btn-black {
+    background-color: black; /* Set the background color to black */
+    color: white; /* Set the text color to white */
+}
+
+.profilecontainer {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: flex-start; /* Vertically center the content */
+}
+
+.profile-picture {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 150px; /* Must follow .profile-username's margin-right */
+    border: 5px solid #c8c8c8; /* Add a border around the profile picture */
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture:hover .change-profile {
+    opacity: 1; /* Show the overlay on hover */
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 700px; /* Set a fixed width for the container */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-username {
+    margin-bottom: 10px; /* Adjust as needed */
+    margin-right: 180px; /* Must follow .profile-picture's margin-right */
+}
+
+/* Set fixed width for the button */
+.btn-edit-profile {
+    width: 150px; /* Adjust the width as needed */
+}
+
+.private-info {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+    .private-info hr {
+        flex-grow: 1; /* Allow the horizontal line to expand and fill remaining space */
+        margin-left: 10px; /* Add some space between the text and the line */
+    }
+
+.chart-container {
+    display: flex;
+    align-items: center; /* Center vertically */
+    width: 100%; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    margin-top: 20px; /* Adjust margin as needed */
+    margin-bottom: 20px;
+}
+
+.modal-content {
+    background-color: #f9f9f9; /* White background */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+.modal-body input[type="range"] {
+    width: 100%; /* Make the range input full-width */
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: center; /* Align buttons horizontally at the center */
+    margin-top: 20px; /* Add spacing between profile-details and buttons */
+}
+
+/* Style the buttons */
+.btn-edit-profile,
+.btn-self-assessment {
+    margin: 0 10px; /* Add some spacing between the buttons */
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the left */
+    margin-top: 20px; /* Adjust margin as needed */
+    width: 100%; /* Ensure buttons span the full width of the container */
+}
+
+/*--------------------------------------------------------------
+# People Section
+--------------------------------------------------------------*/
+
+.member-img img {
+    width: 100px; /* Set your desired width */
+    height: 100px; /* Set your desired height */
+    object-fit: cover; /* This ensures the image covers the entire space */
+    border-radius: 50%; /* This creates a circular shape for the image */
+}
+
+.member-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center-align vertically */
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #f0f0f0; /* Add your desired background color */
+    border-radius: 10px; /* Optional: Add border radius for rounded corners */
+    border: 1px solid #ccc; /* Add border */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.member-img {
+    margin-right: 20px; /* Add some margin for spacing */
+    display: flex;
+    justify-content: center; /* Center-align horizontally */
+    border-radius: 50%; /* Maintain a circular shape for the image */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+}
+
+
+.member-details {
+    flex-grow: 1; /* Allow the details to expand and fill remaining space */
+}
+
+    .member-details p {
+        margin: 0; /* Remove default margins */
+    }
+
+
+    .member-details h6,
+    .member-details span,
+    .member-details p {
+        color: #000; /* Set the text color to black */
+    }
+
+.activities-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-left: 40.5%;
+    width: 700px; /* Set a fixed width for the container */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.activities-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Set two columns */
+    gap: 20px;
+}
+
+.activity-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.view-details-btn {
+    background-color: #0d6efd; /* Change button background color to a coral color */
+    color: #fff; /* Change button text color to white */
+    border: none;
+    padding: 6px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .view-details-btn:hover {
+        background-color: #0b5ed7; /* Change button background color on hover to a darker shade of coral */
+    }
+
+.participant-image {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50%; /* Make it circular */
+    margin-right: 10px; /* Add some spacing between images */
+}
+/* CSS for making the button stretch across the container */
+.btn-full-width {
+    width: 100%;
+}
+
+.activitydetailscontainer {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+.hostactivitycontainer {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.comment .row {
+    margin-left: 0; /* Reset default margin */
+    margin-right: 0; /* Reset default margin */
+}
+
+.comment img {
+    margin-right: 10px; /* Adjust the spacing between the profile image and the name */
+}
+
+.timestamp {
+    margin-left: auto; /* Move the timestamp to the right */
+}
+
+#commentContent {
+    width: 90%;
+    height: 50px; /* Adjust the height as needed */
+    padding: 10px;
+    border: 1px solid #7f7f90;
+    border-radius: 5px;
+    resize: vertical; /* Allow vertical resizing */
+    margin-bottom: 10px; /* Add some spacing below the comment box */
+    margin-top: 10px;
+    display: block; /* Make it a block-level element */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+    #commentForm button:hover {
+        background-color: #0056b3; /* Darker color on hover */
+    }
+
+.commentBox {
+    margin-top: 20px;
+}
+
+    .commentBox p {
+        margin: 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        .commentBox p a {
+            color: red;
+            text-decoration: none;
+        }
+
+            .commentBox p a:hover {
+                text-decoration: underline;
+            }
+
+/* Style for required fields */
+input:required, textarea:required, select:required {
+    border-color: #000; /* Black border for required fields */
+}
+
+    input:required:focus, textarea:required:focus, select:required:focus {
+        border-color: #333; /* Darker border color on focus for required fields */
+    }
+
